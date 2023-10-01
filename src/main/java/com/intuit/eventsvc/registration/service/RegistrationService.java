@@ -36,8 +36,8 @@ public class RegistrationService {
 
 
     // Get all events
-    public void deregister(Long id) {
-        userRegistrationRepository.deleteById(id);
+    public void deregister(RegistrationRequest request) {
+        userRegistrationRepository.deleteByUserIdAndEventId(request.getUserId(), request.getEventId());
     }
 
     public List<Event> getRegisteredEventsByUserId(Long userId) {

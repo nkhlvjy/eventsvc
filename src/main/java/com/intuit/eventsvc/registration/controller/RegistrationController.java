@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/v1")
 public class RegistrationController {
 
@@ -29,9 +30,9 @@ public class RegistrationController {
         return ResponseEntity.ok(registration);
     }
 
-    @DeleteMapping("/registration/{id}")
-    public ResponseEntity<Void> deregister(@PathVariable Long id) {
-        registrationService.deregister(id);
+    @PostMapping("/deregistration")
+    public ResponseEntity<Void> deregister(@RequestBody RegistrationRequest request) {
+        registrationService.deregister(request);
         return ResponseEntity.ok().build();
     }
 
