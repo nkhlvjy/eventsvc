@@ -35,7 +35,6 @@ public class RegistrationService {
     }
 
 
-    // Get all events
     public void deregister(RegistrationRequest request) {
         userRegistrationRepository.deleteByUserIdAndEventId(request.getUserId(), request.getEventId());
     }

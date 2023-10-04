@@ -28,14 +28,12 @@ public class EventController {
         return ResponseEntity.ok(newEvent);
     }
 
-    // Get all events
     @GetMapping("/events")
     public ResponseEntity<List<Event>> getAllProducts()
     {
         return ResponseEntity.ok(eventService.fetchAllEvents());
     }
 
-    // Get a event by ID
     @GetMapping("/events/{id}")
     public ResponseEntity<Event> getProductById(@PathVariable Long id)
     {

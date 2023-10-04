@@ -28,7 +28,6 @@ public class EventService {
     }
 
 
-    // Get all events
     public List<Event> fetchAllEvents() {
         return eventRepository.findAll();
     }
