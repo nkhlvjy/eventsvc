@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
@@ -12,6 +13,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Getter
 @Table(name = "users")
 public class User {
 
@@ -26,9 +28,9 @@ public class User {
 
     @Column(nullable = false)
     @JsonProperty("created_at")
-    private Timestamp created_at;
+    private Timestamp createdAt;
 
     @Column(nullable = false)
     @JsonProperty("updated_at")
-    private Timestamp updated_at;
+    private Timestamp updatedAt;
 }

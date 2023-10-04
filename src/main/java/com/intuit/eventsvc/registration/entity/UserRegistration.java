@@ -32,9 +32,9 @@ public class UserRegistration {
 
     @Column(nullable = false)
     @JsonProperty("created_at")
-    private Timestamp created_at;
+    private Timestamp createdAt;
 
     @Column(nullable = false)
     @JsonProperty("updated_at")
-    private Timestamp updated_at;
+    private Timestamp updatedAt;
 }

@@ -3,9 +3,7 @@ package com.intuit.eventsvc.event.service;
 import com.intuit.eventsvc.event.dto.CreateEventRequest;
 import com.intuit.eventsvc.event.entity.Event;
 import com.intuit.eventsvc.repository.repo.EventRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -22,10 +20,10 @@ public class EventService {
 
     public Event saveEvent(CreateEventRequest request) {
         return eventRepository.save(Event.builder()
-                .event_name(request.getEventName())
-                .event_category(request.getEventCategory())
-                .start_time(Timestamp.valueOf(request.getStartTime()))
-                .end_time(Timestamp.valueOf(request.getEndTime()))
+                .eventName(request.getEventName())
+                .eventCategory(request.getEventCategory())
+                .startTime(Timestamp.valueOf(request.getStartTime()))
+                .endTime(Timestamp.valueOf(request.getEndTime()))
                 .build());
     }
 

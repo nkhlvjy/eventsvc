@@ -27,8 +27,8 @@ public class RegistrationService {
             return userRegistrationRepository.save(UserRegistration.builder()
                     .eventId(request.getEventId())
                     .userId(request.getUserId())
-                    .created_at(new Timestamp(System.currentTimeMillis()))
-                    .updated_at(new Timestamp(System.currentTimeMillis()))
+                    .createdAt(new Timestamp(System.currentTimeMillis()))
+                    .updatedAt(new Timestamp(System.currentTimeMillis()))
                     .build());
         }
         return null;

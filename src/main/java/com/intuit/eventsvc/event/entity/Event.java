@@ -2,9 +2,7 @@ package com.intuit.eventsvc.event.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.sql.Timestamp;
 
@@ -12,6 +10,8 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Getter
+@Setter
 @Table(name = "events")
 public class Event {
 
@@ -22,17 +22,17 @@ public class Event {
 
     @Column(nullable = false)
     @JsonProperty("event_name")
-    private String event_name;
+    private String eventName;
 
     @Column(nullable = false)
     @JsonProperty("event_category")
-    private String event_category;
+    private String eventCategory;
 
     @Column(nullable = false)
     @JsonProperty("start_time")
-    private Timestamp start_time;
+    private Timestamp startTime;
 
     @Column(nullable = false)
     @JsonProperty("end_time")
-    private Timestamp end_time;
+    private Timestamp endTime;
 }

@@ -20,8 +20,8 @@ public class UserService {
     public User createUser(UserCreationRequest request) {
         return userRepository.save(User.builder()
                 .userId(request.getUserId())
-                .created_at(new Timestamp(System.currentTimeMillis()))
-                .updated_at(new Timestamp(System.currentTimeMillis()))
+                .createdAt(new Timestamp(System.currentTimeMillis()))
+                .updatedAt(new Timestamp(System.currentTimeMillis()))
                 .build());
     }
 
