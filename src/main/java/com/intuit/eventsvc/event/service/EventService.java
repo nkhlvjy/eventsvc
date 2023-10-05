@@ -4,6 +4,7 @@ import com.intuit.eventsvc.event.dto.CreateEventRequest;
 import com.intuit.eventsvc.event.entity.Event;
 import com.intuit.eventsvc.repository.repo.EventRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -18,6 +19,7 @@ public class EventService {
     }
 
 
+    @Transactional
     public Event saveEvent(CreateEventRequest request) {
         return eventRepository.save(Event.builder()
                 .eventName(request.getEventName())
@@ -27,11 +29,12 @@ public class EventService {
                 .build());
     }
 
-
+    @Transactional
     public List<Event> fetchAllEvents() {
         return eventRepository.findAll();
     }
 
+    @Transactional
     public Event fetchEventById(Long id) {
         Optional<Event> event
                 = eventRepository.findById(id);

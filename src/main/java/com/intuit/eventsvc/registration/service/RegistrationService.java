@@ -6,6 +6,7 @@ import com.intuit.eventsvc.registration.dto.RegistrationRequest;
 import com.intuit.eventsvc.registration.entity.UserRegistration;
 import com.intuit.eventsvc.repository.repo.UserRegistrationRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -20,7 +21,7 @@ public class RegistrationService {
         this.eventService = eventService;
     }
 
-
+    @Transactional
     public UserRegistration register(RegistrationRequest request) {
         List<UserRegistration> registrations = userRegistrationRepository.findByUserIdAndEventId(request.getUserId(), request.getEventId());
         if(registrations.isEmpty()) {
@@ -34,11 +35,12 @@ public class RegistrationService {
         return null;
     }
 
-
+    @Transactional
     public void deregister(RegistrationRequest request) {
         userRegistrationRepository.deleteByUserIdAndEventId(request.getUserId(), request.getEventId());
     }
 
+    @Transactional
     public List<Event> getRegisteredEventsByUserId(Long userId) {
         return userRegistrationRepository
                 .findByUserId(userId)

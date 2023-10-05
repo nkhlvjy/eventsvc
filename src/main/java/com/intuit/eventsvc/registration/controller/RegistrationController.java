@@ -21,7 +21,7 @@ public class RegistrationController {
         this.registrationService = registrationService;
     }
 
-    @PostMapping("/registration")
+    @PostMapping("/registrations")
     public ResponseEntity<UserRegistration> register(@RequestBody RegistrationRequest request) {
         UserRegistration registration = registrationService.register(request);
         if(registration == null) {
@@ -30,7 +30,7 @@ public class RegistrationController {
         return ResponseEntity.ok(registration);
     }
 
-    @PostMapping("/deregistration")
+    @PostMapping("/deregistrations")
     public ResponseEntity<Void> deregister(@RequestBody RegistrationRequest request) {
         registrationService.deregister(request);
         return ResponseEntity.ok().build();
